@@ -27,7 +27,7 @@ function App() {
 
   function sanitize(total, percentage) {
     let rawAmount = total * percentage
-    if (rawAmount % 1 != 0) {
+    if (rawAmount % 1 !== 0) {
       let sanitizedAmount = `${rawAmount}`.split(".")
       console.log(`${rawAmount}`.split("."))
       let newNum = sanitizedAmount[1].slice(0,2)
