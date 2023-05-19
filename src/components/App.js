@@ -1,15 +1,12 @@
 import { useState } from "react";
 
 function App() {
-  const [total, setTotal] = useState(0)
+  const [total, setTotal] = useState(0.0)
   const [percent, setPercent] =  useState(.20)
-
-  console.log(`The total state is ${total}.`)
-  console.log(`The percent state is ${percent}.`)
 
   function handleSubmit(e) {
     e.preventDefault()
-    let input = e.target.children[0].children[0].value
+    let input = e.target.children[0].value
     setTotal(input)
   }
 
@@ -25,32 +22,32 @@ function App() {
     }
   }
 
-  function sanitize(total, percentage) {
-    let rawAmount = total * percentage
-    if (rawAmount % 1 !== 0) {
-      let sanitizedAmount = `${rawAmount}`.split(".")
-      console.log(`${rawAmount}`.split("."))
-      let newNum = sanitizedAmount[1].slice(0,2)
-      console.log(newNum)
-      let tip = [sanitizedAmount[0], newNum].join(".")
-      return tip
-    }
-    return rawAmount
+  function calulateTip(total, percentage) {
+    let rawTip = total * percentage;
+    let roundedTip = Math.round(rawTip * 100) / 100; // Round the tip to two decimal places
+    return roundedTip.toFixed(2); // Return the tip amount as a string with exactly two decimal places
   }
 
+  function calculateTotalAfterTip(total, tip) {
+    let totalAfterTip = parseFloat(total) + parseFloat(tip);
+    totalAfterTip = totalAfterTip.toFixed(2); // Round the total after tip to two decimal places
+  
+    return totalAfterTip;
+  }
+
+  const tip = calulateTip(total, percent);
+  const totalAfterTip = calculateTotalAfterTip(total, tip)
 
   return (
     <main>
       <section>
         <h1>Tip Calculator</h1>
         <form onSubmit={handleSubmit}>
-          <label>Total:
-            <input
-            type="text"
-            name="total"
-            placeholder="enter your total here"
-            />
-          </label>
+          <input
+          type="text"
+          name="total"
+          placeholder="enter your total here"
+          />
           <button type="submit">Caluclate</button>
         </form>
       </section>
@@ -64,8 +61,8 @@ function App() {
             </div>
           </div>
           <div className="tip-results">
-            <p>Tip: ${sanitize(total, percent)}</p>
-            <p>Total After Tip: ${parseInt(total) + parseFloat(sanitize(total, percent))}</p>
+            <p>Tip: ${tip}</p>
+            <p>Total After Tip: ${totalAfterTip}</p>
           </div>
         </div>
       </div>

@@ -44,10 +44,6 @@ section {
   margin: auto;
 }
 
-/* .percentage-results-container p {
-  justify-content: center;
-} */
-
 .percentage-div {
   display: flex;
   align-items: center;
@@ -64,7 +60,7 @@ button {
   transition: all 0.1s ease-in;
 }
 
-label {
+form {
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
@@ -74,7 +70,6 @@ label {
 .tip-results {
   padding: 4rem;
   text-align: center;
-  /* transform: translate(-50%, -50%); */
 }
 
 p {
@@ -85,4 +80,9 @@ p {
 input {
   width: 200px;
   height: 40px;
+}
+
+form input,
+form button {
+  margin-bottom: 20px;
 }
