@@ -1,8 +1,13 @@
 import React from 'react'
+import useWindowDimensions from '../helpers/useWindowDimensions'
 
 function Footer() {
+  const {height, width } = useWindowDimensions()
+
+  const footerClass = width > 814 ? 'web-footer' : 'phone-footer'
+
   return (
-  <footer>
+  <footer className={footerClass}>
     <h4>Created By Luis Castro</h4>
     <div className='links-div'>
       <h4>Follow Me:</h4>

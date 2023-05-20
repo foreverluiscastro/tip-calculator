@@ -55,6 +55,7 @@ section {
 }
 
 footer button {
+  cursor: pointer;
   border-radius: 50%;
   border: 1px solid transparent;
 
@@ -64,6 +65,7 @@ footer button {
 }
 
 button {
+  cursor: pointer;
   font-family: "Press Start 2p", cursive;
   font-size: 1rem;
   border: 3px solid black;
@@ -71,6 +73,10 @@ button {
   background-color: rgb(245, 158, 158);
   box-shadow: inset -3px -3px 0 0 rgb(252, 124, 124);
   transition: all 0.1s ease-in;
+
+  &:hover {
+    opacity: 0.85;
+  }
 }
 
 form {
@@ -101,13 +107,28 @@ form button {
   margin-bottom: 1rem;
 }
 
-footer {
+.web-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+}
+
+.phone-footer {
   padding: 10px;
   position: absolute;
   bottom: 0;
-  left: 0;
   display: flex;
   flex-direction: column;
+  left: 0;
+}
+
+.phone-footer h4 {
+  left: 0;
 }
 
 footer h4 {
@@ -116,11 +137,14 @@ footer h4 {
 }
 
 img {
-  width: 30px;
+  width: 50px;
 }
 
 .links-div {
+  
   display: flex;
+  align-items: center;
+  text-align: center;
 }
 
 /* Media Queries */
