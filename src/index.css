@@ -12,11 +12,15 @@ body {
     rgb(25, 216, 204) 0%,
     rgba(33, 246, 233, 1) 100%
   );
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
-  margin: 10rem auto;
-  max-width: 700px;
+  flex-grow: 1;
+  margin: 5rem auto;
+  max-width: 90%;
   min-height: 500px;
   background: pink;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
@@ -50,9 +54,18 @@ section {
   justify-content: center;
 }
 
+footer button {
+  border-radius: 50%;
+  border: 1px solid transparent;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
 button {
   font-family: "Press Start 2p", cursive;
-  font-size: 0.8rem;
+  font-size: 1rem;
   border: 3px solid black;
   padding: 0.5rem 1rem;
   background-color: rgb(245, 158, 158);
@@ -64,25 +77,77 @@ form {
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
-  font-size: 0.8em;
+  font-size: 1rem;
 }
 
 .tip-results {
-  padding: 4rem;
+  padding: 2rem;
   text-align: center;
 }
 
 p {
-  font-size: 1rem;
-  padding: 1rem;
+  font-size: 1.2rem;
+  padding: 0.5rem;
 }
 
 input {
-  width: 200px;
+  width: 90%;
+  max-width: 300px;
   height: 40px;
 }
 
 form input,
 form button {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
+}
+
+footer {
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+footer h4 {
+  padding: 10px;
+  text-align: center;
+}
+
+img {
+  width: 30px;
+}
+
+.links-div {
+  display: flex;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  main {
+    margin: 3rem auto;
+  }
+
+  input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  p {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    margin: 2rem auto;
+  }
+
+  p {
+    font-size: 0.9rem;
+    padding: 0.3rem;
+  }
 }

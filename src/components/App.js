@@ -1,4 +1,7 @@
 import { useState } from "react";
+import TipForm from "./TipForm";
+import CalculatorContainer from "./CalculatorContainer";
+import Footer from "./Footer";
 
 function App() {
   const [total, setTotal] = useState(0.0)
@@ -40,32 +43,9 @@ function App() {
 
   return (
     <main>
-      <section>
-        <h1>Tip Calculator</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-          type="text"
-          name="total"
-          placeholder="enter your total here"
-          />
-          <button type="submit">Caluclate</button>
-        </form>
-      </section>
-      <div className="percentage-results-container">
-        <div>
-          <div className="percentage-div">
-            <h1>{Math.round(percent * 100)}%</h1>
-            <div className="button-container">
-              <button onClick={handleChange}>↑</button>
-              <button onClick={handleChange}>↓</button>
-            </div>
-          </div>
-          <div className="tip-results">
-            <p>Tip: ${tip}</p>
-            <p>Total After Tip: ${totalAfterTip}</p>
-          </div>
-        </div>
-      </div>
+      <TipForm handleSubmit={handleSubmit}/>
+      <CalculatorContainer handleChange={handleChange} percent={percent} tip={tip} totalAfterTip={totalAfterTip}/>
+      <Footer/>
     </main>
   );
 }
