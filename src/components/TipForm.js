@@ -11,7 +11,7 @@ function TipForm({ handleSubmit }) {
       placeholder="enter your total here"
       inputMode="numeric"
       />
-      <button type="submit">Caluclate</button>
+      <button type="submit">Calculate</button>
     </form>
   </section>
   )
